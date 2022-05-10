@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2><a href="{%url 'new'%}">글쓰기</a></h2>    
+<h1>메인</h1>
+
+    <a href="{% url 'showsub' %}">SUBPAGE</a>
+
+    <img src="{% static 'images/멋사.png' %}" alt="">
+
+    <div>
+        {% for post in posts %}
+        <div>
+            <h3>
+                {{post.title}}
+            </h3>
+            {{post.writer}}<br>
+            {{post.summary}}
+            <a href="{%url 'detail' post.id %}">...더보기</a>
+            <br>
+        </div>
+        {%endfor%}
+
+    </div>
+
+    <div class="infor">
+        <h2>Personal Info</h2>
+        <p>이유진</p>
+        <p>2001.10.06</p>
+        <p>전자전기공학부</p>
+        <p>마포구 거주</p>
+        <a href="https://www.instagram.com/doffstanb/?hl=ko"><img src="{% static 'images/instagram.png' %}" alt=""></a>
+        <div class="lorem">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto temporibus sequi neque minus asperiores eaque suscipit amet dolorum, veniam eos recusandae perspiciatis sed odit id labore reiciendis optio provident.
+          Adipisci illum, facere perspiciatis error odit temporibus distinctio qui laboriosam assumenda consequatur, officia aspernatur natus incidunt accusamus commodi repellat nesciunt. Asperiores reprehenderit quam impedit eligendi harum eaque aut unde cum?
+          Beatae nemo reiciendis eos sed, vel fugit nostrum soluta dolor quidem id libero ex incidunt repudiandae error, pariatur omnis, quam natus suscipit magni maxime doloribus. Laudantium enim exercitationem dolore! Velit?
+          Maxime minus id illum eveniet iste consectetur asperiores in. Repudiandae perferendis provident inventore quaerat delectus sapiente, corporis et? Commodi, non! Voluptas corporis delectus tempora neque error dicta, ut qui ab?
+          Nobis ex laborum quas dolor pariatur quidem fugit, eius esse est totam laboriosam corporis, iure obcaecati aliquam adipisci suscipit error debitis quaerat? Nesciunt, temporibus deleniti ducimus corporis natus unde dignissimos.
+        </div>
+        
+        <div class="floatwell">
+         <p class="left">
+          요건 왼쪽에
+         </p>
+          <p class="right">
+          요건 오른쪽에
+           </p>
+      </div>
+       
+    </div>
+
+    <div class="like">
+        <h2> 내가 좋아하는 것은</h2>
+
+        <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  일렉기타
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  일렉기타 치는걸 좋아합니다. 1년정도 됐습니다.
+                </div>
+                <div class="gui">
+                    <img src="{% static 'images/gui.jpg' %}" alt="elec_guitar">
+                </div>
+                
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  특이한 엽서 모으기
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    구석구석 숨어있는 특이한 카페나 소품샵을 찾으며 엽서, 사진을 모으는 것을 좋아합니다.
+                </div>
+                <img src="{% static 'images/post.jpg' %}" alt="postcard">
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                 구석구석돌아다니자..
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  연남, 이태원, 삼청동, 성수가 좋아요. 그리고 한강 구경하기도 매우 좋아합니다.
+                  
+                </div>
+                <img src="{% static 'images/map.jpg' %}" alt="loved">
+              </div>
+            </div>
+          </div>
+    </div>
+
+{% endblock %}
