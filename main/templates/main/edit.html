@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block content %}
-
 <h1>글 수정하기</h1>
 
 <form action="{% url 'main:update' post.id %}" method="post">
@@ -10,6 +10,7 @@
     <p>제목 : <input type="text" name="title" value ="{{post.title}}"></p>
     <p>작성자 : <input type="text" name="writer" value="{{post.writer}}"></p>
     <p>내용 : <textarea name="body" id="" cols="30" rows="10" >{{post.body}}</textarea></p>
+    <p>사진: <input type="file" name="image" id="">{{post.image}}</p>
     <button type="submit">제출</button>
 </form>
 
