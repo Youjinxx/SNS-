@@ -144,7 +144,6 @@ MEDIA_URL='/media/'
 AUTHENTICATION_BACKENDS=[
      #superuser 로그인
      'django.contrib.auth.backends.ModelBackend',
-     #이메일 등의 로그인 기능
      'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
