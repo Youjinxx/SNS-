@@ -1,5 +1,3 @@
-from abc import update_abstractmethods
-import re
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post , Comment
 from django.utils import timezone
@@ -74,11 +72,14 @@ def update_comment(request, id):
     update_comment.save()
     return redirect('main:detail', update_comment.id)
 
+
 def delete_comment(request, id):
     delete_comment = Comment.objects.get(id=id)
     delete_comment.delete()
     return redirect('main:showmain')
 
+
 def edit_comment(request, id):
     edit_comment = Comment.objects.get(id=id)
-    return render(request, 'main/editcomment.html', {'edit_comment':edit_comment})    
+    return render(request, 'main/editcomment.html' ) 
+  

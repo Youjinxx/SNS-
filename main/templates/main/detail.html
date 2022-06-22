@@ -53,7 +53,8 @@
         {{comment.content}}
         <br><hr>
         <br>
-        <a href="{% url 'main:edit_comment' comment.id%}">댓글 수정하기</a>
+        <a href="{% url 'main:edit_comment' comment.id %}">댓글 수정하기</a>
+        
         <a href="{% url 'main:delete_comment' comment.id%}">댓글 삭제하기</a>
 
         <hr>

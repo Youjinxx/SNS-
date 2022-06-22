@@ -151,4 +151,4 @@ AUTHENTICATION_BACKENDS=[
 SITE_ID = 1
 
 # 로그인 시 이동하는 페이지, 만약 글 목록으로 이동하고 싶다면 '/posts'
-LOGIN_REDIRECT_URL = '/' #메인화면으로 이동
+LOGIN_REDIRECT_URL = '/' #메인화면으로
