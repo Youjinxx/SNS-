@@ -16,7 +16,8 @@ def showsub(request):
 
 def detail(request,id):
     post=get_object_or_404(Post, pk=id)
-    return render(request,'main/detail.html',{'post':post})
+    all_comments = post.comments.all().order_by('-created_at')
+    return render(request,'main/detail.html',{'post':post, 'comments':all_comments})
 
 def new(request):
     return render(request,'main/new.html')
@@ -38,11 +39,9 @@ def edit(request, id):
 def update(request, id):
     update_post = Post.objects.get(id=id)
     update_post.title = request.POST['title']
-    update_post.writer = request.user
     update_post.pub_date = timezone.now()
     update_post.body = request.POST['body']
     update_post.image = request.FILES.get('image')
-    
     update_post.save()
     return redirect('main:detail', update_post.id)
 
@@ -59,27 +58,24 @@ def create_comment(request, post_id):
     new_comment.save() 
     return redirect('main:detail', post_id)
 
-def detail(request, id):
-    post = get_object_or_404(Post, pk = id)
-    all_comments = post.comments.all().order_by('-created_at')
-    return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
-
-def update_comment(request, id):
-    update_comment = Comment.objects.get(id=id)
+def update_comment(request, post_id, comment_id):
+    post = Post.objects.get(id=post_id)
+    update_comment = Comment.objects.get(id = comment_id)
     update_comment.content = request.POST['content']
-    update_comment.writer = request.user
-    update_comment.post = get_object_or_404(Post, pk = id)
     update_comment.save()
-    return redirect('main:detail', update_comment.id)
+    return redirect('main:detail', post.id)
 
-
-def delete_comment(request, id):
-    delete_comment = Comment.objects.get(id=id)
+def delete_comment(request, comment_id, post_id):
+    post = Post.objects.get(id = post_id)
+    delete_comment = Comment.objects.get(id=comment_id)
     delete_comment.delete()
     return redirect('main:showmain')
 
 
-def edit_comment(request, id):
-    edit_comment = Comment.objects.get(id=id)
-    return render(request, 'main/editcomment.html' ) 
+def edit_comment(request, post_id, comment_id):
+    post = Post.objects.get(id = post_id)
+    edit_comment = Comment.objects.get(id = comment_id)
+    return render(request, 'main/editcomment.html', {'post':post, 'comment' : edit_comment})
+
+
   

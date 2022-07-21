@@ -4,12 +4,13 @@
 
 {% block content %}
 
-<form action="{% url 'main:update_comment' comment.id %}" method="post" enctype="multipart/form-data">
+<form action="{% url 'main:update_comment' post.id comment.id %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
     
-    <p>내용 : <textarea name="content" id="" cols="30" rows="10" value="{{comment.content}}"></textarea></p>
+    <p>내용 : <textarea name="content" id="" cols="30" rows="10" >{{comment.content}}</textarea></p>
     
     <button type="submit">완료??</button>
 </form>
 
 {% endblock %}
+
