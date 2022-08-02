@@ -1,0 +1,76 @@
+*{
+    font-family: 'Montserrat';
+}
+
+.title{
+    background-color: white;
+    color: black;
+
+
+    text-align: center;
+    padding: 30px;
+    margin: 50px;
+
+    font-weight: bold;
+    font-style: initial;
+    border-bottom: 1px dotted grey;
+    border-top: 1px dotted grey;
+    margin-bottom: 10px;
+}
+
+.infor{
+    border-bottom: 1px dotted grey;
+    border-top: 1px dotted grey;
+    font-size: 15px;
+    padding: 30px;
+    margin: 50px;
+}
+
+.lorem{
+    font-size: 13px;
+    line-height: 16px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.left{
+    font-size: 11px;
+    font-weight: bold;
+    float: left;
+
+}
+.right{
+    font-size: 11px;
+    font-weight: bold;
+    float: right;
+}
+
+img { 
+    width : 20%;
+    height: 20%; 
+   }
+
+.accordion-button{
+    background-color: whitesmoke;
+    color: black;
+}
+body{
+    text-align: center;
+}
+
+.accordion-item{
+    border: 1px dotted gray;
+    margin: 50px;
+    margin-bottom: 10px;
+}
+
+.floatwell{
+    overflow: hidden;
+}
+
+.ins{
+    width: 30px;
+    height: 30px;
+}
